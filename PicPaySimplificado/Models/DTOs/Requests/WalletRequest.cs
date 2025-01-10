@@ -7,6 +7,9 @@ namespace PicPaySimplificado.Models.DTOs.Requests;
 
 public class WalletRequest
 {
+    [Required(ErrorMessage = "O Nome é obrigatório.")]
+    public string Name { get; set; }
+    
     [Required(ErrorMessage = "O CPF ou CNPJ é obrigatório.")]
     [CpfCnpjValidation(ErrorMessage = "O CPF ou CNPJ informado é inválido.")]
     public string CPFCNPJ { get; set; }

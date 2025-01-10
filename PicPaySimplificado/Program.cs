@@ -2,6 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using PicPaySimplificado.Infra.Database;
 using PicPaySimplificado.Infra.Repositories.Transfer;
 using PicPaySimplificado.Infra.Repositories.Wallet;
+using PicPaySimplificado.Services.Authorization;
+using PicPaySimplificado.Services.Notification;
+using PicPaySimplificado.Services.Transfer;
+using PicPaySimplificado.Services.Wallet;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddScoped<ITransferRepository, TransferRepository>();
+
+builder.Services.AddScoped<ITransferService, TransferService>();
+builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
+builder.Services.AddHttpClient<IAuthorizationService, AuthorizationService>();
 
 var app = builder.Build();
 

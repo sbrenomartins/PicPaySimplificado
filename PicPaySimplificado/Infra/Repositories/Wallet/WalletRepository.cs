@@ -23,7 +23,7 @@ public class WalletRepository : IWalletRepository
         _context.Wallets.Update(wallet);
     }
 
-    public async Task<WalletEntity?> GetByIdAsync(string id)
+    public async Task<WalletEntity?> GetByIdAsync(int id)
     {
         return await _context.Wallets.FindAsync(id);
     }

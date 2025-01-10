@@ -6,7 +6,7 @@ public interface IWalletRepository
 {
     Task AddAsync(WalletEntity wallet);
     Task UpdateAsync(WalletEntity wallet);
-    Task<WalletEntity?> GetByIdAsync(string id);
+    Task<WalletEntity?> GetByIdAsync(int id);
     Task<WalletEntity?> GetByCpfCnpjAsync(string cpfCnpj, string email);
     Task CommitAsync();
 }
